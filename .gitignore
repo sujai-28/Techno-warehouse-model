@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+venv/
+*.png
+allocation_output.csv
