@@ -87,11 +87,11 @@ def allocate_sku(size, total_qty, gender='M'):
         return {'Bagalur': total_qty, 'Bhiwandi': 0, 'Kolkata': 0, 'Gurgaon': 0}
 
     # 1. Raw Split
-    bagalur_retained = int(round(total_qty * 0.6))
+    bagalur_retained = int(round(total_qty * 0.64))
     push_pool = total_qty - bagalur_retained
 
-    raw_bhi = int(round(total_qty * 0.2))
-    raw_kol = int(round(total_qty * 0.15))
+    raw_bhi = int(round(total_qty * 0.17))
+    raw_kol = int(round(total_qty * 0.14))
     raw_gur = push_pool - raw_bhi - raw_kol
 
     alloc = {

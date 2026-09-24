@@ -224,9 +224,9 @@ def create_pdf(filename="Techno_Warehouse_Planning_Model_Logic.pdf"):
 
     wh_arch_data = [
         [Paragraph("Warehouse ID", table_header_style), Paragraph("Location Name", table_header_style), Paragraph("Role & Priority", table_header_style), Paragraph("Default Split Strategy", table_header_style)],
-        [Paragraph("<b>wms_bagalur</b>", table_cell_bold), Paragraph("Bagalur Hub", table_cell_style), Paragraph("Primary Mother Warehouse / Retention Center", table_cell_style), Paragraph("Retains 60% base stock + excess uncapped stock", table_cell_style)],
-        [Paragraph("<b>wms_bhiwandi</b>", table_cell_bold), Paragraph("Bhiwandi (West)", table_cell_style), Paragraph("Priority 1 Push Warehouse (P1)", table_cell_style), Paragraph("Receives 20% base push allocation", table_cell_style)],
-        [Paragraph("<b>wms_kolkata</b>", table_cell_bold), Paragraph("Kolkata (East)", table_cell_style), Paragraph("Priority 2 Push Warehouse (P2)", table_cell_style), Paragraph("Receives 15% base push allocation", table_cell_style)],
+        [Paragraph("<b>wms_bagalur</b>", table_cell_bold), Paragraph("Bagalur Hub", table_cell_style), Paragraph("Primary Mother Warehouse / Retention Center", table_cell_style), Paragraph("Retains 64% base stock + excess uncapped stock", table_cell_style)],
+        [Paragraph("<b>wms_bhiwandi</b>", table_cell_bold), Paragraph("Bhiwandi (West)", table_cell_style), Paragraph("Priority 1 Push Warehouse (P1)", table_cell_style), Paragraph("Receives 17% base push allocation", table_cell_style)],
+        [Paragraph("<b>wms_kolkata</b>", table_cell_bold), Paragraph("Kolkata (East)", table_cell_style), Paragraph("Priority 2 Push Warehouse (P2)", table_cell_style), Paragraph("Receives 14% base push allocation", table_cell_style)],
         [Paragraph("<b>wms_ggn</b>", table_cell_bold), Paragraph("Gurugram (North)", table_cell_style), Paragraph("Priority 3 Push Warehouse (P3)", table_cell_style), Paragraph("Receives 5% (or residual push) allocation", table_cell_style)],
     ]
     wh_arch_table = Table(wh_arch_data, colWidths=[80, 100, 170, 172])
@@ -302,7 +302,7 @@ def create_pdf(filename="Techno_Warehouse_Planning_Model_Logic.pdf"):
         body_style
     ))
 
-    stage1 = "<b>Stage 1: Base Ratio Split:</b> 60% retained at Bagalur. 40% Push Pool split as Bhiwandi=20%, Kolkata=15%, Gurugram=5%."
+    stage1 = "<b>Stage 1: Base Ratio Split:</b> 64% retained at Bagalur. 36% Push Pool split as Bhiwandi=17%, Kolkata=14%, Gurugram=5%."
     stage2 = "<b>Stage 2: Size-Specific Maximum Capping:</b> Pushed quantities per WH are capped against gender/size MAX limits. Excess is redirected to Bagalur."
     stage3 = "<b>Stage 3: Size-Specific Minimum Capping:</b> If allocated qty < MIN cap (e.g. MIN=5), push is canceled (set to 0) and retained at Bagalur."
     stage4 = "<b>Stage 4: Aggregate Style-Level NS & PS Capping:</b> Sizes grouped into Normal (NS: S–2XL) and Plus (PS: 3XL–5XL). If aggregate style-color push to a WH is < overall MIN cap (e.g. Mens NS Min = 25 pcs), ALL size allocations for that style to that WH revert to Bagalur."
